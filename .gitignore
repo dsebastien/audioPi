@@ -1,4 +1,5 @@
 # General
+*.*~
 *.bak
 tmp/**
 tmp/**/*

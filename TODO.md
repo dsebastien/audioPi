@@ -1,23 +1,52 @@
-# To do
-* ALSA config and tests (sound card order, etc)
-* PulseAudio setup and config
-* PulseAudio - ALSA interaction config and tests
-* MPD setup, config and tests
-* MPD clients tests
-* AudioEngine (MPD client) development
+# Base OS config
+* test removing 'audio' group membership
+* set static ip
+* Microphone recording: https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture#No_Microphone_Input
+
+# audioPi basic config
+* MPD clients review/tests
+* MPD client: remuco / bluetooth
+* MPD restore_paused "yes"
+* MPD scrobbling
 * Bluetooth setup and config
 * Bluetooth pairing tests
 * Bluetooth A2DP config and tests
 * PulseAudio RTP config and tests
+* PulseAudio RTP: http://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/User/Modules/#index7h2
+* PulseAudio RTP: http://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/User/Network/RTP/
+* PulseAudio RTP: http://blog.seventhmoon.info/blog/2012/12/23/pulseaudio-over-network/
 * PulseAudio_ctl: keyboard volume control
+* AudioEngine (MPD client) development
 
 # Open questions (will generate additional todos :p)
-* Installation/Distribution of the project? OpenEmbedded?
-* PortAudio usage?
-* GStreamer role? API, Plugins, Pipeline, Sync?
+* Bluetooth - PulseAudio relationship
+* Bluetooth - AudioEngine relationship
 * AudioEngine: language, feature set, etc
+* MPD - Bluetooth link?
 * MDP - A2DP link?
-* PulseAudio - Python libs
-* ALSA - Python libs
-* BlueZ - Python libs
+* Python libs - PulseAudio
+* Python libs - ALSA
+* Python libs - BlueZ
 * Voice recognition config + integration with AudioEngine / MPD
+* Installation/Distribution of the project? OpenEmbedded? Super script that does it all for you? :)
+
+# Bonus audio config
+* PulseAudio: comment out: load-module module-suspend-on-idle (causes crackling between songs)
+* PulseAudio: change resample-method, set to 'src-sinc-fastest' (the default one, speex-float-3 does not work on the pi with the adaptive resampling required to compensate for the clock drift between rtp stream and alsa device
+* PulseAudio: set default-fragments = 10 
+* PulseAudio: set default-fragment-size-msec = 10
+* MPD: auto_update_depth
+* MPD: symlinks behavior
+* MPD: zeroconf / network publication
+* MPD: check mpd.git (more recent :p)
+* MPD: check audio_output - mixer_type      "software"
+* MPD HTTPD output
+* MPD shoutcast streaming (or from PulseAudio?): http://mpd.wikia.com/wiki/Configuration
+* check out pulseaudio_ctl: https://aur.archlinux.org/packages/pulseaudio_ctl/
+* check out paxmier: https://aur.archlinux.org/packages.php?ID=52369
+* Icecast: https://wiki.archlinux.org/index.php/Streaming_With_Icecast
+* AirPlay: http://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/User/Modules/#index8h2
+* HQ resampling - test performances: https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture#High_quality_resampling
+* Upmixing/Downmixing - test: https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture#Upmixing.2FDownmixing
+* Find how to make hot-plugging USB sound card work: https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture#Using_a_USB_Headset_and_External_USB_Sound_Cards
+* Text to speech: eSpeak
